@@ -5,54 +5,19 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-# Grant necessary permissions for GitHub Token
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # Define the environment for deployment
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Inject Secrets into script.js
-        env:
-          USER1_USERNAME: ${{ secrets['USER1_USERNAME'] }}
-          USER1_PASSWORD: ${{ secrets['USER1_PASSWORD'] }}
-          USER10_USERNAME: ${{ secrets['USER10_USERNAME'] }}
-          USER10_PASSWORD: ${{ secrets['USER10_PASSWORD'] }}
         run: |
-          python3 - <<'PY'
-          import os
-          from pathlib import Path
-
-          replacements = {
-              "__USER1_USERNAME__": os.environ.get("USER1_USERNAME", ""),
-              "__USER1_PASSWORD__": os.environ.get("USER1_PASSWORD", ""),
-              "__USER10_USERNAME__": os.environ.get("USER10_USERNAME", ""),
-              "__USER10_PASSWORD__": os.environ.get("USER10_PASSWORD", ""),
-          }
-
-          missing = [name for name, value in replacements.items() if not value]
-          if missing:
-              raise SystemExit(
-                  "Missing required GitHub secrets for deployment: "
-                  + ", ".join(missing)
-              )
-
-          script_path = Path("script.js")
-          contents = script_path.read_text(encoding="utf-8")
-          for placeholder, value in replacements.items():
-              contents = contents.replace(placeholder, value)
-          script_path.write_text(contents, encoding="utf-8")
-          PY
+          sed -i "s/__USER1_USERNAME__/${{ secrets.USER1_USERNAME }}/g" script.js
+          sed -i "s/__USER1_PASSWORD__/${{ secrets.USER1_PASSWORD }}/g" script.js
+          sed -i "s/__USER10_USERNAME__/${{ secrets.10_USERNAME }}/g" script.js
+          sed -i "s/__USER10_PASSWORD__/${{ secrets.USER10_PASSWORD }}/g" script.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
