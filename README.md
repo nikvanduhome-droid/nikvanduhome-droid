@@ -40,26 +40,15 @@ Here are some ideas to get you started:
 
 ## 🔐 Password Protected Login
 
-To enable password-protected login for three users, follow these steps:
+The login page is password-protected for three users using client-side JavaScript validation.
 
-### 1. Install dependencies
-```bash
-npm install express body-parser cors
-```
-
-### 2. Start the server
-```bash
-node server.js
-```
-The server will run at http://localhost:3000
-
-### 3. Login credentials
+### Login credentials
 - alice / password1
 - bob / password2
 - charlie / password3
 
-### 4. Usage
-Open login.html in your browser and log in with one of the above users.
+### Usage
+Open login.html in your browser and log in with one of the above users. On successful login, you will be redirected to your user space.
 
 ---
 

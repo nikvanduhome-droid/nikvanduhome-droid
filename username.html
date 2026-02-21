@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to your space!</h1>
+    </header>
+    <section>
+        <div id="userBanner" class="user-banner"></div>
+        <p>This is your personal user space.</p>
+    </section>
+    <footer>
+        <p>© 2026 Home Portal</p>
+    </footer>
+    <script>
+        // Display username from localStorage
+        const username = localStorage.getItem('loggedInUser');
+        document.getElementById('userBanner').textContent = `Hello, ${username}!`;
+    </script>
+</body>
+</html>

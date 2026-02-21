@@ -26,9 +26,10 @@ function loginUser() {
 
     if (users[username] && users[username] === password) {
         message.style.color = "green";
-        message.textContent = "Login successful! Redirecting...";
+        message.textContent = `Login successful! Welcome, ${username}. Redirecting...`;
+        localStorage.setItem('loggedInUser', username);
         setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "username.html";
         }, 1500);
     } else {
         message.style.color = "red";
