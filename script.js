@@ -36,4 +36,3 @@ function loginUser() {
         message.textContent = "Invalid credentials. Try alice/bob/charlie";
     }
 }
-});
