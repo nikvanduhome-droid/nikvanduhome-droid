@@ -11,12 +11,11 @@ This is a static client-side web application with no backend or build process. A
 ## Key Patterns
 
 ### Authentication
-Hardcoded user credentials in `script.js`:
+User credentials are stored as GitHub Actions secrets and injected into `script.js` during deployment:
 ```javascript
 const users = {
-    'alice': 'password1',
-    'bob': 'password2',
-    'charlie': 'password3'
+    '__USER1_USERNAME__': '__USER1_PASSWORD__',
+    '__USER10_USERNAME__': '__USER10_PASSWORD__'
 };
 ```
 Login validation in `loginUser()` function checks against this object and sets `localStorage.loggedInUser`.

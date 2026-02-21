@@ -40,15 +40,14 @@ Here are some ideas to get you started:
 
 ## 🔐 Password Protected Login
 
-The login page is password-protected for three users using client-side JavaScript validation.
+The login page is password-protected for two users using client-side JavaScript validation. Credentials are securely stored as GitHub Actions secrets and injected during deployment.
 
 ### Login credentials
-- alice / password1
-- bob / password2
-- charlie / password3
+- User 1: Defined via `USER1_USERNAME` and `USER1_PASSWORD` secrets
+- User 10: Defined via `USER10_USERNAME` and `USER10_PASSWORD` secrets
 
 ### Usage
-Open login.html in your browser and log in with one of the above users. On successful login, you will be redirected to your user space.
+Open login.html in your browser and log in with one of the defined users. On successful login, you will be redirected to your user space.
 
 ---
 

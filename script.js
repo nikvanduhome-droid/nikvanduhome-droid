@@ -7,11 +7,10 @@ function loginUser() {
     const password = document.getElementById("password").value;
     const message = document.getElementById("message");
 
-    // Hardcoded credentials
+    // Placeholder for users object - will be replaced by GitHub Actions
     const users = {
-        'alice': 'password1',
-        'bob': 'password2',
-        'charlie': 'password3'
+        '__USER1_USERNAME__': '__USER1_PASSWORD__',
+        '__USER10_USERNAME__': '__USER10_PASSWORD__'
     };
 
     if (users[username] && users[username] === password) {
@@ -23,6 +22,6 @@ function loginUser() {
         }, 1500);
     } else {
         message.style.color = "red";
-        message.textContent = "Invalid credentials. Try alice/bob/charlie";
+        message.textContent = "Invalid credentials. Try the defined users.";
     }
 }

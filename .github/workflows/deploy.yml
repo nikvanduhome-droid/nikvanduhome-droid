@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject Secrets into script.js
+        run: |
+          sed -i "s/__USER1_USERNAME__/${{ secrets.USER1_USERNAME }}/g" script.js
+          sed -i "s/__USER1_PASSWORD__/${{ secrets.USER1_PASSWORD }}/g" script.js
+          sed -i "s/__USER10_USERNAME__/${{ secrets.10_USERNAME }}/g" script.js
+          sed -i "s/__USER10_PASSWORD__/${{ secrets.USER10_PASSWORD }}/g" script.js
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
