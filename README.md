@@ -40,7 +40,7 @@ Here are some ideas to get you started:
 ---
 -->
 
-## 🔐 Password Protected Login
+## 🔐 Password Protected Login Access
 
 The login page is password-protected for two users using client-side JavaScript validation. Credentials are securely stored as GitHub Actions secrets and injected during deployment.
 
