@@ -17,10 +17,10 @@
 
 <section class="login-container">
     <h2>Home User Login</h2>
-        <form id="loginForm">
+        <form id="loginForm" onsubmit="return false;">
             <input type="text" id="username" placeholder="Username" required>
             <input type="password" id="password" placeholder="Password" required>
-            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn" onclick="loginUser()">Login</button>
         </form>
         <p id="message"></p>
 </section>

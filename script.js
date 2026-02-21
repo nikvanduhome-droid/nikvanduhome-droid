@@ -2,16 +2,6 @@ function demoAlert(feature) {
     alert(feature + " demo is currently under development.");
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("loginForm");
-    if (form) {
-        form.addEventListener("submit", function(event) {
-            event.preventDefault();
-            loginUser();
-        });
-    }
-});
-
 function loginUser() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
