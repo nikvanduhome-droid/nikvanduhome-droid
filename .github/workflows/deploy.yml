@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
-# Grant necessary permissions for GitHub Token
+
 permissions:
   contents: read
   pages: write
@@ -13,9 +13,10 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-     # Define the environment for deployment
+    # This block must be indented under the job name
     environment:
-    name: github-pages
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
