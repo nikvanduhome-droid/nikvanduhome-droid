@@ -1,7 +1,7 @@
 # Welcome **Home 🏠**
 
-![GitHub repo size](https://img.shields.io/github/repo-size/your-username/home-repo)
-![GitHub stars](https://img.shields.io/github/stars/your-username/home-repo?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/nikvanduhome-droid/Home)
+![GitHub stars](https://img.shields.io/github/stars/nikvanduhome-droid/Home-repo?style=social)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## Hi there 👋 this is our ✨ _special_ ✨ place
